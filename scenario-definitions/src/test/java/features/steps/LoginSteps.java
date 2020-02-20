@@ -2,12 +2,23 @@ package features.steps;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pom.web.pages.HomePage;
 
 public class LoginSteps {
     public static HomePage homePage;
+
+    @And("Enter credentials to log in")
+    public void enterUserCredentials() {
+        String username = System.getProperty("username");
+        String password = System.getProperty("password");
+        if (username == null || password == null) {
+            throw new IllegalStateException("Invalid user credentials [" + username + ":" + password + "]");
+        }
+        homePage = BaseSteps.loginPage.loginAsRegistered(username, password);
+    }
 
     @Then("Input {string} should be visible")
     public void inputUsernameShouldBeVisible(String name) {
@@ -69,6 +80,7 @@ public class LoginSteps {
                 throw new IllegalStateException(String.format("Undefined input state: '%s'", state));
         }
     }
+
     @Then("Button {string} should be {word}")
     public void buttonShouldBe(String name, String state) {
         if (!"Login".equals(name)) {
