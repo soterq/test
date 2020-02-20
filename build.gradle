@@ -1,0 +1,59 @@
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+//task validate {
+//    if (!project.hasProperty('nodeIp')) {
+//        test.enabled = false
+//        logger.warn('> Warn: Property <nodeIp> should be specified >> -PnodeIp=IP_ADDRESS')
+//    } else {
+//        test.enabled = true
+//    }
+//}
+//
+//test {
+//    if (project.hasProperty('nodeName')) {
+//        String nodeName = project.findProperty('nodeName')
+//        logger.info("> Running on Selenium Node Name: ${nodeName}")
+//        systemProperty("serenity.driver.capabilities", "applicationName:${nodeName}")
+//    }
+//
+//    String nodeIp = project.findProperty('nodeIp')
+//    logger.info("> Running on Selenium Node IP Address: ${nodeIp}")
+//    systemProperty("selenium.node", nodeIp)
+//
+//    def username = 'admin'
+//    def password = 'manager'
+//    if (project.hasProperty('username') && project.hasProperty('password')) {
+//        username = project.findProperty('username')
+//        password = project.findProperty('password')
+//    }
+//    systemProperty("username", username)
+//    systemProperty("password", password)
+//
+//    def browserName = 'chrome'
+//    if (project.hasProperty('browser')) {
+//        browserName = project.findProperty('browser')
+//    }
+//    systemProperty("context", browserName)
+//    systemProperty("webdriver.remote.driver", browserName)
+//    logger.info("> Running on Browser Type: $browserName")
+//
+//    if (project.hasProperty('tags')) {
+//        String scenarioTags = project.findProperty('tags')
+//        logger.info("> Scenario Tags: ${scenarioTags}")
+//        systemProperty("cucumber.options", "--tags '${scenarioTags}'")
+//    }
+//
+//    // Set to zero for all unit_tests.pages
+//    def maxTablePagesToTest = 0
+//    systemProperty("maxTablePagesToTest", maxTablePagesToTest)
+//
+//    include '**/features/tests/**'
+//    exclude '**/integration_tests/**'
+//    finalizedBy(aggregate)
+//}
+//
+//gradle.startParameter.continueOnFailure = true
