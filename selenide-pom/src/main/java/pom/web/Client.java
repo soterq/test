@@ -6,6 +6,8 @@ import pom.logging.LogLevel;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import pom.web.pages.HomePage;
+import pom.web.pages.LoginPage;
 //import pom.web.pages.HomePage;
 //import pom.web.pages.LoginPage;
 
@@ -14,13 +16,13 @@ public class Client {
 
     private static final String URL = "http://demowebshop.tricentis.com/login";
 
-//    private LoginPage loginPage;
+    private LoginPage loginPage;
 
-//    public Client open() {
-//        loginPage = Selenide.open(URL, LoginPage.class);
-//        LOGGER.log(LogLevel.STEP, String.format("Open Login Page: '%s'", URL));
-//        return this;
-//    }
+    public Client open() {
+        loginPage = Selenide.open(URL, LoginPage.class);
+        LOGGER.log(LogLevel.STEP, String.format("Open Login Page: '%s'", URL));
+        return this;
+    }
 
     public Client setConfig(String browser, int timeout) {
         LOGGER.log(LogLevel.INFO, String.format("BROWSER: '%s', TIMEOUT: '%d'", browser, timeout));
@@ -83,12 +85,12 @@ public class Client {
         Selenide.closeWebDriver();
     }
 
-//    public HomePage login(String username, String password) {
-//        LOGGER.log(LogLevel.STEP, String.format("Login As: username='%s', password='%s'", username, password));
-//        return loginPage.loginAsRegistered(username, password);
-//    }
-//
-//    public LoginPage getLoginPage() {
-//        return loginPage;
-//    }
+    public HomePage login(String username, String password) {
+        LOGGER.log(LogLevel.STEP, String.format("Login As: username='%s', password='%s'", username, password));
+        return loginPage.loginAsRegistered(username, password);
+    }
+
+    public LoginPage getLoginPage() {
+        return loginPage;
+    }
 }

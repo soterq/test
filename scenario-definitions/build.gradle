@@ -1,0 +1,39 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath('net.serenity-bdd:serenity-gradle-plugin:2.0.82')
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+//    implementation project(':data-provider-api')
+//    implementation project(':page-object-models')
+    implementation project(':selenide-pom')
+
+    implementation 'com.codeborne:selenide:5.5.1'
+    implementation 'net.serenity-bdd:serenity-core:2.1.6', {
+        exclude group: 'io.cucumber', module: 'cucumber-core'
+    }
+    implementation 'net.serenity-bdd:serenity-cucumber4:2.1.2'
+    implementation 'io.cucumber:cucumber-core:4.8.0'
+    implementation 'io.cucumber:cucumber-junit:4.8.0'
+    implementation 'io.cucumber:cucumber-java:4.8.0'
+}
+
+test {
+    include '**/features/tests/**'
+    finalizedBy(aggregate)
+}
+
+tasks.withType(Test) {
+    systemProperties = System.getProperties() as Map<String, ?>
+}

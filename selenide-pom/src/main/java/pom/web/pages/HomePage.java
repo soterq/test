@@ -1,6 +1,6 @@
 package pom.web.pages;
 
-import com.codeborne.selenide.SelenideElement;
+import pom.web.components.NavigationMenu;
 
 import static com.codeborne.selenide.Selenide.page;
 

@@ -1,2 +1,23 @@
-# Project exclude paths
-/.gradle/
+/.gradle
+/build
+/history
+/target
+/out
+/scenarios-definition/target
+/data-provider-api/out
+/data-provider-api/build
+/page-object-models/build
+/page-object-models/out
+/scenarios-definition/build
+/scenarios-definition/out
+/.idea/workspace.xml
+*.iml
+/.idea/modules/*.iml
+/.idea/modules/scenarios-definition/*.iml
+/.idea/modules.xml
+/.idea/libraries
+libraries
+/.idea/codeStyles/codeStyleConfig.xml
+/selenide-poms/build
+/.idea/.name
+/scenarios-definition/src/test/resources/backup/

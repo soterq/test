@@ -1,3 +1,4 @@
 rootProject.name = 'test'
 include 'selenide-pom'
+include 'scenario-definitions'
 

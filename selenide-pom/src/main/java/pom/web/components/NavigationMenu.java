@@ -1,4 +1,4 @@
-package pom.web.pages;
+package pom.web.components;
 
 public class NavigationMenu {
 

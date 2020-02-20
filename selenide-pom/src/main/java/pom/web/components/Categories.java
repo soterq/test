@@ -1,4 +1,4 @@
-package pom.web.pages;
+package pom.web.components;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
