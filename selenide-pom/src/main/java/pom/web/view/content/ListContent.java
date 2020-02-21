@@ -1,10 +1,10 @@
 package pom.web.view.content;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import pom.enums.ViewContentType;
 import pom.web.base.ElementContainer;
-import pom.web.base.View;
 import pom.web.base.ViewContent;
 
 public class ListContent extends ElementContainer implements ViewContent {
@@ -20,35 +20,23 @@ public class ListContent extends ElementContainer implements ViewContent {
 
 
     private ElementsCollection getPaths() {
-        return null;
+        return getContainer().$$("div.breadcrumb>ul>li");
     }
 
     public SelenideElement getTitle() {
+        return getContainer().$("div.page-title");
+    }
+
+    public ElementsCollection getItems() {
+        return getContainer().$$("");
+    }
+
+    public SelenideElement getEItem(String name) {
         return null;
     }
 
-    public ElementsCollection getDropdowns() {
-        return null;
-    }
-
-    public SelenideElement getDropdown(String name) {
-        return null;
-    }
-
-    public ElementsCollection getElements() {
-        return null;
-    }
-
-    public SelenideElement getElement(String name) {
-        return null;
-    }
-
-    public void clickOnElement(String name) {
-        getElement(name).click();
-    }
-
-    public ViewContent selectElement(String name, ViewContentType viewContentType) {
-        clickOnElement(name);
+    public ViewContent clickOnElement(String name, ViewContentType viewContentType) {
+        getEItem(name).click();
         return viewContentType.build(getContainer());
     }
 
