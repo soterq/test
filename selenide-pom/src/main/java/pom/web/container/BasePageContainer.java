@@ -8,4 +8,5 @@ public class BasePageContainer {
     protected SelenideElement getPageContainer() {
         return $("div.master-wrapper-page");
     }
+
 }

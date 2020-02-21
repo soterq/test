@@ -102,4 +102,9 @@ public class LoginSteps {
                 throw new IllegalStateException(String.format("Undefined button state: '%s'", state));
         }
     }
+
+    @When("Click on logout")
+    public void enterUsername() {
+        homePage.getLogout().shouldBe(Condition.visible).click();
+    }
 }

@@ -2,19 +2,16 @@ package pom.enums;
 
 import com.codeborne.selenide.SelenideElement;
 import pom.web.base.View;
-import pom.web.view.CategoryView;
-import pom.web.view.ListView;
+import pom.web.view.content.SubCategoryView;
 
 public enum ViewType {
-    CATEGORY,
-    LIST;
+    CATEGORY;
+
 
     public View build(SelenideElement container) {
         switch (this) {
             case CATEGORY:
-                return new CategoryView(container);
-            case LIST:
-                return new ListView(container);
+                return new SubCategoryView(container);
             default:
                 return null;
         }
