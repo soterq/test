@@ -5,7 +5,6 @@ import pom.web.components.NavigationMenu;
 import pom.web.container.BasePageContainer;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.page;
 
 public class HomePage extends BasePageContainer {
 //    private NavigationMenu getNavigationMenu() {
@@ -19,4 +18,6 @@ public class HomePage extends BasePageContainer {
     public NavigationMenu getNavigationMenu() {
         return new NavigationMenu(getPageContainer());
     }
+
+
 }

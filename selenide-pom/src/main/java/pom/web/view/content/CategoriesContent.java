@@ -5,18 +5,17 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import pom.enums.ViewContentType;
 import pom.web.base.ElementContainer;
-import pom.web.base.View;
 import pom.web.base.ViewContent;
 
-public class SubCategoryView extends ElementContainer implements View {
-    //lef side navigation bar ex SectionView
-    public SubCategoryView(SelenideElement container) {
+public class CategoriesContent extends ElementContainer implements ViewContent {
+
+    public CategoriesContent(SelenideElement container) {
         super(container);
     }
 
     @Override
-    public <T extends View> T castTo(Class<T> viewType) {
-        return viewType.cast(this);
+    public <T extends ViewContent> T castTo(Class<T> contentType) {
+        return contentType.cast(this);
     }
 
     private ElementsCollection getPaths() {
@@ -34,10 +33,8 @@ public class SubCategoryView extends ElementContainer implements View {
     public SelenideElement getCategory(String name) {
         ElementsCollection nodes = getCategories().filterBy(Condition.exactText(name));
         return nodes.shouldHaveSize(1).get(0).closest(".sub-category-item");
-
     }
 
-    //navigate from section
     public ViewContent selectSection(String name, ViewContentType viewContentType) {
         getCategory(name).click();
         return viewContentType.build(getContainer());

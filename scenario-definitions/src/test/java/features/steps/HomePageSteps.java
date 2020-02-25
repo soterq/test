@@ -1,12 +1,9 @@
 package features.steps;
 
-import com.codeborne.selenide.Condition;
-import io.cucumber.java.en.When;
-import pom.web.container.BasePageContainer;
+import pom.web.pages.HomePage;
 
 public class HomePageSteps {
-
-
+    public static HomePage homePage ;
 
 
 }

@@ -11,10 +11,9 @@ public class ProductContent extends ElementContainer implements ViewContent {
     public ProductContent(SelenideElement container) {
         super(container);
     }
-
     @Override
-    public <T extends ViewContent> T castTo(Class<T> contentType) {
-        return contentType.cast(this);
+    public <T extends ViewContent> T castTo(Class<T> viewType) {
+        return viewType.cast(this);
     }
 
     private ElementsCollection getPaths() {
