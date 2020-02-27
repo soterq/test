@@ -1,13 +1,15 @@
 package features.steps;
 
 import io.cucumber.java.en.When;
-import pom.enums.ViewContentType;
-import pom.web.view.content.ProductContent;
+import pom.enums.ViewType;
+import pom.web.view.ProductCollectionView;
+import pom.web.view.ProductView;
 
 public class ProductCollectionSteps {
+    public static ProductCollectionView productCollection;
 
     @When("Select product {string}")
     public void navigateToGroup(String name) {
-        ProductSteps.productContent = NavigationSteps.sectionView.clickOnElement(name, ViewContentType.PRODUCT).castTo(ProductContent.class);
+        ProductSteps.productView = productCollection.clickOnElement(name, ViewType.PRODUCT).castTo(ProductView.class);
     }
 }

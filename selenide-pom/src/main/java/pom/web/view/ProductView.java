@@ -1,22 +1,23 @@
-package pom.web.view.content;
+package pom.web.view;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import pom.web.base.ElementContainer;
+import pom.web.base.View;
 import pom.web.base.ViewContent;
 
-//in this project I don't have content for every action is generated view but is not generate a new content
-public class ProductContent extends ElementContainer implements ViewContent {
+public class ProductView extends ElementContainer implements View {
 
-    public ProductContent(SelenideElement container) {
+    public ProductView(SelenideElement container) {
         super(container);
     }
 
     @Override
-    public <T extends ViewContent> T castTo(Class<T> viewType) {
+    public <T extends View> T castTo(Class<T> viewType) {
         return viewType.cast(this);
     }
+
 
     private ElementsCollection getPaths() {
         return getContainer().$$("div.breadcrumb>ul>li");

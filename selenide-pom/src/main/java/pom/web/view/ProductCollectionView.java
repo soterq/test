@@ -5,12 +5,14 @@ import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.impl.CollectionElement;
 import pom.enums.ViewContentType;
+import pom.enums.ViewType;
 import pom.web.base.ElementContainer;
 import pom.web.base.View;
 import pom.web.base.ViewContent;
 
-public class SectionView extends ElementContainer implements View {
-    public SectionView(SelenideElement container) {
+public class ProductCollectionView extends ElementContainer implements View {
+
+    public ProductCollectionView(SelenideElement container) {
         super(container);
     }
 
@@ -41,8 +43,9 @@ public class SectionView extends ElementContainer implements View {
         return null;
     }
 
-    public ViewContent clickOnElement(String name, ViewContentType viewContentType) {
+    public View clickOnElement(String name, ViewType viewType) {
         getProduct(name).scrollIntoView(true).click();
-        return viewContentType.build(getContainer());
+        return viewType.build(getContainer());
     }
+
 }

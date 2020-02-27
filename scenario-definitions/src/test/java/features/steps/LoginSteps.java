@@ -18,6 +18,7 @@ public class LoginSteps {
             throw new IllegalStateException("Invalid user credentials [" + username + ":" + password + "]");
         }
         homePage = BaseSteps.loginPage.loginAsRegistered(username, password);
+        HomePageSteps.homePage = new HomePage();
     }
 
     @Then("Input {string} should be visible")

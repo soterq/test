@@ -1,21 +1,23 @@
-package pom.web.view.content;
+package pom.web.view;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import pom.enums.ViewContentType;
+import pom.enums.ViewType;
 import pom.web.base.ElementContainer;
+import pom.web.base.View;
 import pom.web.base.ViewContent;
 
-public class CategoriesContent extends ElementContainer implements ViewContent {
+public class CategoriesView extends ElementContainer implements View {
 
-    public CategoriesContent(SelenideElement container) {
+    public CategoriesView(SelenideElement container) {
         super(container);
     }
 
     @Override
-    public <T extends ViewContent> T castTo(Class<T> contentType) {
-        return contentType.cast(this);
+    public <T extends View> T castTo(Class<T> viewType) {
+        return viewType.cast(this);
     }
 
     private ElementsCollection getPaths() {
@@ -32,7 +34,7 @@ public class CategoriesContent extends ElementContainer implements ViewContent {
 
     public SelenideElement getCategory(String name) {
         ElementsCollection nodes = getCategories().filterBy(Condition.exactText(name));
-        return nodes.shouldHaveSize(1).get(0).closest(".sub-category-item");
+        return nodes.shouldHaveSize(1).get(0);
     }
 
     public ViewContent selectSection(String name, ViewContentType viewContentType) {
@@ -42,5 +44,10 @@ public class CategoriesContent extends ElementContainer implements ViewContent {
 
     public String getPath() {
         return "";
+    }
+
+    public View selectCategory(String name, ViewType viewType) {
+        getCategory(name).scrollIntoView(true).click();
+        return viewType.build(getContainer());
     }
 }
