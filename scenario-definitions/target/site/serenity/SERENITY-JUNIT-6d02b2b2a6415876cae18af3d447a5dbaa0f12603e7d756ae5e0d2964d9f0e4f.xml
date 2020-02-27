@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Users category section" skipped="0" tests="1" time="34.65" timestamp="2020-02-27 02:37:04"><testcase name="Validate navigate to Shopping cart"><failure message="Texts size mismatch&#13;&#10;Actual: [Remove, , Product(s), Price, Qty., Total], List size: 6&#13;&#10;Expected: [Remove, Product(s), Price, Qty., Total], List size: 5&#13;&#10;Collection: table.cart&gt;thead&gt;tr.cart-header-row/th&#10;Screenshot: file:/C:/Users/vitalies/IdeaProjects/dev/api/selenide-web-test/scenario-definitions/build/reports/tests/1582807058493.0.png&#10;Timeout: 15 s." type="java.lang.AssertionError">Texts size mismatch&#13;
+Actual: [Remove, , Product(s), Price, Qty., Total], List size: 6&#13;
+Expected: [Remove, Product(s), Price, Qty., Total], List size: 5&#13;
+Collection: table.cart&gt;thead&gt;tr.cart-header-row/th
+Screenshot: file:/C:/Users/vitalies/IdeaProjects/dev/api/selenide-web-test/scenario-definitions/build/reports/tests/1582807058493.0.png
+Timeout: 15 s.</failure><system-err>Texts size mismatch&#13;
+Actual: [Remove, , Product(s), Price, Qty., Total], List size: 6&#13;
+Expected: [Remove, Product(s), Price, Qty., Total], List size: 5&#13;
+Collection: table.cart&gt;thead&gt;tr.cart-header-row/th
+Screenshot: file:/C:/Users/vitalies/IdeaProjects/dev/api/selenide-web-test/scenario-definitions/build/reports/tests/1582807058493.0.png
+Timeout: 15 s.&#13;
+com.codeborne.selenide.collections.ExactTexts.fail(ExactTexts.java:55)&#13;
+com.codeborne.selenide.ElementsCollection.waitUntil(ElementsCollection.java:160)&#13;
+com.codeborne.selenide.ElementsCollection.should(ElementsCollection.java:108)&#13;
+com.codeborne.selenide.ElementsCollection.shouldHave(ElementsCollection.java:86)&#13;
+features.steps.ShoppingCartSteps.shoppingCartShouldHaveColumns(ShoppingCartSteps.java:22)&#13;
+✽.Shopping cart should have columns(file:src/test/resources/features/login/ShoppingCart.feature:10)&#13;
+</system-err></testcase></testsuite>

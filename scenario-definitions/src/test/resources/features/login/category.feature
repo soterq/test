@@ -1,4 +1,3 @@
-@single
 Feature: Users category section
   As a logged in user
   I should navigate to category

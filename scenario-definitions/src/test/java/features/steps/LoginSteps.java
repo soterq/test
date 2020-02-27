@@ -8,7 +8,6 @@ import io.cucumber.java.en.When;
 import pom.web.pages.HomePage;
 
 public class LoginSteps {
-    public static HomePage homePage;
 
     @And("Enter credentials to log in")
     public void enterUserCredentials() {
@@ -17,7 +16,7 @@ public class LoginSteps {
         if (username == null || password == null) {
             throw new IllegalStateException("Invalid user credentials [" + username + ":" + password + "]");
         }
-        homePage = BaseSteps.loginPage.loginAsRegistered(username, password);
+        HomePageSteps.homePage = BaseSteps.loginPage.loginAsRegistered(username, password);
         HomePageSteps.homePage = new HomePage();
     }
 
@@ -53,7 +52,7 @@ public class LoginSteps {
         }
 
         BaseSteps.loginPage.getLoginButton().shouldBe(Condition.visible, Condition.enabled).click();
-        homePage = BaseSteps.loginPage.getHomePage();
+        HomePageSteps.homePage = BaseSteps.loginPage.getHomePage();
     }
 
     @Then("Input {string} should be {word}")
@@ -104,8 +103,4 @@ public class LoginSteps {
         }
     }
 
-    @When("Click on logout")
-    public void enterUsername() {
-        homePage.getLogout().shouldBe(Condition.visible).click();
-    }
 }
